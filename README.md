@@ -8,7 +8,7 @@ The Nominator is a React App that allows users to:
 - Use local storage to maintain nominated list
 - error handling for searching, adding, and removing films
 
-![Screenshot](public/screenshot.png?raw=true)
+<img src="public/screenshot.png?raw=true" width="500px">
 
 Built with **React** + **TypeScript**, uses Local Storage to persist the nomination list between refreshes. Deployed with **GitHubPages**.
 

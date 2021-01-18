@@ -3,7 +3,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 
-![Screenshot](/public/screenshot.png?raw=true)
+![Screenshot](public/screenshot.png?raw=true)
 
 My take on Shopify's UX & Web Developer Challenge
 

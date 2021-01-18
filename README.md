@@ -15,11 +15,12 @@ The Nominator is a React App that allows users to:
 
 Built with **React** + **TypeScript**, uses Local Storage for nomination list. Deployed to **GitHubPages**.
 
-<!-- ## Notable Dependencies
+## Notable Dependencies
 
 - `typescript`
 - `rehooks/local-storage`
-- `react-bootstrap` -->
+- `react-bootstrap`
+- `react`
 
 ## Available Scripts
 

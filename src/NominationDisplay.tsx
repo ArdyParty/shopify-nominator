@@ -3,25 +3,24 @@ import { Movie } from "./Models/Movie";
 
 interface IProps {
   movie: Movie;
-  nominationDisabled: boolean;
-  addNomination: (movie: Movie) => void;
+  removeNomination: (movieId: string) => void;
 }
 
-export const MovieResultDisplay: React.FC<IProps> = ({
+export const NominationDisplay: React.FC<IProps> = ({
   movie,
-  nominationDisabled,
-  addNomination,
+  removeNomination,
 }) => {
   return (
     <div key={movie.imdbId} style={{display: 'flex', marginBottom: '30px'}}>
-      <img width="35%" src={movie.poster} alt="Movie Poster"></img> 
+      <img width="35%" src={movie.poster} alt="Movie Poster"/>
       <div style={{display: 'block', width: "65%", padding: "20px"}}>
         <h3>{movie.title}</h3>
         <p>{movie.year}</p>
         <Button
-          onClick={() => addNomination(movie)}
-          disabled={nominationDisabled}
-        >Nominate
+            variant="danger"
+            onClick={() => removeNomination(movie.imdbId)}
+        >
+            Remove
         </Button>
       </div>
     </div>

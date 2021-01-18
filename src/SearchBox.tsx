@@ -1,4 +1,5 @@
 import React from "react";
+import Form from "react-bootstrap/esm/Form";
 
 interface IProps {
   onChange: (query: string) => void;
@@ -6,10 +7,10 @@ interface IProps {
 
 export const SearchBox: React.FC<IProps> = ({ onChange }) => {
   return (
-    <input
-      onChange={(event) => {
+    <Form.Group style={{ width: "100%" }} >
+      <Form.Control size="lg" type="text" placeholder="Search for a movie..." onChange={(event) => {
         onChange(event.target.value);
-      }}
-    ></input>
+      }} />
+    </Form.Group>
   );
 };

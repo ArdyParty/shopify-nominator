@@ -1,7 +1,9 @@
+import useLocalStorage from "@rehooks/local-storage";
 import React, { useEffect, useState } from "react";
-import useLocalStorage from "react-use-localstorage";
+import Col from "react-bootstrap/esm/Col";
 import { Movie, OMDBResponse } from "./Models/Movie";
 import { MovieResultDisplay } from "./MovieResultDisplay";
+
 
 interface IProps {
   query: string;
@@ -13,15 +15,11 @@ export const MovieResults: React.FC<IProps> = ({ query }) => {
   const [resultsList, setResultsList] = useState<Movie[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
-  const [nominationsJSON, setNominations] = useLocalStorage("nominations", "");
-  const nominations: string[] = nominationsJSON
-    ? JSON.parse(nominationsJSON)
-    : [];
+  const [nominations, setNominations] = useLocalStorage("nominations", [] as Movie[]);
 
-  const addNomination = (movieId: string) => {
-    const newNominations = nominations.concat([movieId]);
-    const newNominationsJSON = JSON.stringify(newNominations);
-    setNominations(newNominationsJSON);
+  const addNomination = (movie: Movie) => {
+    const newNominations = nominations.concat([movie]);
+    setNominations(newNominations);
   };
 
   // TODO move this into its own hook
@@ -71,19 +69,30 @@ export const MovieResults: React.FC<IProps> = ({ query }) => {
   }, [query, setLoading, setResultsList, setError]);
 
   return (
-    <>
+    <Col md="6" xs="12">
+      {loading && "Loading..."}
       {!loading && !error && (
-        <div>
-          {resultsList.map((movie) => (
-            <MovieResultDisplay
-              movie={movie}
-              alreadyNominated={nominations.includes(movie.imdbId)}
-              addNomination={addNomination}
-            ></MovieResultDisplay>
-          ))}
-        </div>
+        <>
+          <>
+            {resultsList.length >= 1 && (
+              <h2 style={{ marginBottom: '20px' }}>Search results for {query}</h2> 
+            )}
+          </>
+          <>
+            {resultsList.map((movie) => (
+              <MovieResultDisplay
+                movie={movie}
+                nominationDisabled={
+                  nominations.length === 5 ||  // No more nominations if we're at capacity
+                  nominations.find((nomination) => nomination.imdbId === movie.imdbId) !== undefined  // Cannot re-nominate if already nominated
+                }
+                addNomination={addNomination}
+              ></MovieResultDisplay>
+            ))}
+          </>
+        </>
       )}
       {!loading && error && <h3>{error}</h3>}
-    </>
+    </Col>
   );
 };

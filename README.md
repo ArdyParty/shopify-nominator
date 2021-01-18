@@ -2,6 +2,25 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+
+![Screenshot](https://imgur.com/qWVbGXZ)
+
+My take on Shopify's UX & Web Developer Challenge
+
+The Nominator is a React App that allows users to:
+- Search OMDB API for films
+- Nominate searched films in the nomination list
+- Use local storage to maintain nominated list
+- error handling for searching, adding, and removing films
+
+Built with **React** + **TypeScript** Deployed to **GitHubPages**.
+
+<!-- ## Notable Dependencies
+
+- `typescript`
+- `rehooks/local-storage`
+- `react-bootstrap` -->
+
 ## Available Scripts
 
 In the project directory, you can run:

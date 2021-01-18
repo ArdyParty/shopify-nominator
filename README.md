@@ -3,7 +3,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 
-![Screenshot](https://imgur.com/qWVbGXZ)
+![Screenshot](/public/screenshot.png?raw=true)
 
 My take on Shopify's UX & Web Developer Challenge
 
@@ -13,7 +13,7 @@ The Nominator is a React App that allows users to:
 - Use local storage to maintain nominated list
 - error handling for searching, adding, and removing films
 
-Built with **React** + **TypeScript** Deployed to **GitHubPages**.
+Built with **React** + **TypeScript**, uses Local Storage for nomination list. Deployed to **GitHubPages**.
 
 <!-- ## Notable Dependencies
 

@@ -25,7 +25,9 @@ export const NominationsList: React.FC = () => {
 
   return (
     <Col md="6" xs="12">
-      <h2 style={{ marginBottom: '20px' }}>Your Nominations</h2> 
+      {nominations.length !== 0 && (
+      <h2 style={{ marginBottom: '20px' }}>Your Nominations</h2>
+      )}
       {nominations.length === 5 && (
         <Alert variant="success">
           Your nominations are full, thank you!
